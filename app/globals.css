@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   VYRON base — sets the canvas, type defaults, focus ring, and the
+   single orchestrated motion moment. See DESIGN.md for rationale.
+   ------------------------------------------------------------------ */
+
+:root {
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #0b5cff;
+}
+
+html,
+body {
+  background-color: theme("colors.canvas");
+  color: theme("colors.ink");
+  font-family: theme("fontFamily.sans");
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* All numbers carry weight — tabular by default. */
+.vyron-num,
+table,
+.recharts-text {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Single focus ring pattern, applied via Tailwind ring utilities.
+   Reset default browser outline so the ring is the only signal. */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid theme("colors.brand.DEFAULT");
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduce motion preference — kill the camera pan and any transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Page-load orchestrated moment — the map fades and settles. */
+@keyframes vyron-map-settle {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.vyron-map-settle {
+  animation: vyron-map-settle 700ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Severity dot — shared by pills, KPIs, alerts. */
+@keyframes vyron-pulse-critical {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+  }
+}
+.vyron-pulse-critical {
+  animation: vyron-pulse-critical 1.6s ease-in-out infinite;
+}
+
+/* Drawer slide. */
+@keyframes vyron-drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.vyron-drawer-in {
+  animation: vyron-drawer-in 220ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Toast. */
+@keyframes vyron-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.vyron-toast-in {
+  animation: vyron-toast-in 180ms ease-out both;
+}
+
+/* Hairline scrollbars. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.hairline");
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.ink-muted");
+}
