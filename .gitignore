@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.vscode/
+.idea/
+next-env.d.ts
+
+# Hackathon inputs — design references, not part of the codebase
+*.pdf
+Screenshot_*.png
