@@ -7,7 +7,8 @@ import { Drawer } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { SeverityDot } from "@/components/ui/severity-dot";
-import { HAZARD_LABEL, SEVERITY_LABEL, regionById } from "@/lib/constants";
+import { HAZARD_LABEL, SEVERITY_LABEL } from "@/lib/constants";
+import { regionById } from "@/lib/mock-data";
 import { formatIST, formatRelative } from "@/lib/utils";
 
 type AlertDrawerProps = {

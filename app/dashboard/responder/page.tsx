@@ -9,7 +9,8 @@ import { Pill } from "@/components/ui/pill";
 import { SeverityDot } from "@/components/ui/severity-dot";
 import { Button } from "@/components/ui/button";
 import { ALERTS, aggregateKpis } from "@/lib/mock-data";
-import { HAZARD_LABEL, regionById, SEVERITY_LABEL } from "@/lib/constants";
+import { HAZARD_LABEL, SEVERITY_LABEL } from "@/lib/constants";
+import { regionById } from "@/lib/mock-data";
 import { formatRelative } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 

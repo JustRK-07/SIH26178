@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import type { Alert } from "@/lib/types";
-import { HAZARD_LABEL, SEVERITY_LABEL, regionById } from "@/lib/constants";
+import { HAZARD_LABEL, SEVERITY_LABEL } from "@/lib/constants";
+import { regionById } from "@/lib/mock-data";
 import { formatRelative } from "@/lib/utils";
 import { SeverityDot } from "@/components/ui/severity-dot";
 import { cn } from "@/lib/utils";

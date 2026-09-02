@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { DashboardShell } from "@/components/layout/dashboard-shell";
 import { Card, CardBody, CardHeader, CardTitle } from "@/components/ui/card";
